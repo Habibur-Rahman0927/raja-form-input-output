@@ -1,7 +1,7 @@
 const getElement = (selection) => {
-    const element = document.querySelector(selection)
-    if (element) return element;
-    throw new Error(`Please check "${selection}" selector, no such element exist`)
+  const element = document.querySelector(selection)
+  if (element) return element;
+  throw new Error(`Please check "${selection}" selector, no such element exist`)
 }
 
 const jobTitle = getElement('#jobTitle');
@@ -24,25 +24,25 @@ const btn = getElement('#sub');
 const output = getElement('#output');
 
 btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const jobTitleValue = jobTitle.value;
-    const descValue = desc.value;
-    const nameOfSiteValue = nameOfSite.value;
-    const publishingValue = publishing.value;
-    const validationValue = validation.value;
-    const jobTypeValue = jobType.value;
-    const nameCompanyValue = nameCompany.value;
-    const companyWebValue = companyWeb.value;
-    const companyLogoValue = companyLogo.value;
-    const streetAddressValue = streetAddress.value;
-    const localAddressValue = localAddress.value;
-    const stateDivisionValue = stateDivision.value;
-    const postalCodeValue = postalCode.value;
-    const countryValue = country.value;
-    const minimunValue = minimun.value;
-    const maximumValue = maximum.value;
+  e.preventDefault();
+  const jobTitleValue = jobTitle.value;
+  const descValue = desc.value;
+  const nameOfSiteValue = nameOfSite.value;
+  const publishingValue = publishing.value;
+  const validationValue = validation.value;
+  const jobTypeValue = jobType.value;
+  const nameCompanyValue = nameCompany.value;
+  const companyWebValue = companyWeb.value;
+  const companyLogoValue = companyLogo.value;
+  const streetAddressValue = streetAddress.value;
+  const localAddressValue = localAddress.value;
+  const stateDivisionValue = stateDivision.value;
+  const postalCodeValue = postalCode.value;
+  const countryValue = country.value;
+  const minimunValue = minimun.value;
+  const maximumValue = maximum.value;
 
-    output.innerText = `
+  output.innerText = `
 <script type="application/ld+json">
 {
 "@context" : "https://schema.org/",
@@ -89,7 +89,7 @@ btn.addEventListener('click', (e) => {
 `
 
 
-    console.log(`
+  console.log(`
 <script type="application/ld+json">
 {
 "@context" : "https://schema.org/",
@@ -135,37 +135,37 @@ btn.addEventListener('click', (e) => {
     </script>
 `)
 
-    jobTitle.value = '';
+  jobTitle.value = '';
 
-    desc.value = '';
+  desc.value = '';
 
-    nameOfSite.value = '';
+  nameOfSite.value = '';
 
-    publishing.value = '';
+  publishing.value = '';
 
-    validation.value = '';
+  validation.value = '';
 
-    jobType.value = '';
+  jobType.value = '';
 
-    nameCompany.value = '';
+  nameCompany.value = '';
 
-    companyWeb.value = '';
+  companyWeb.value = '';
 
-    companyLogo.value = '';
+  companyLogo.value = '';
 
-    streetAddress.value = '';
+  streetAddress.value = '';
 
-    localAddress.value = '';
+  localAddress.value = '';
 
-    stateDivision.value = '';
+  stateDivision.value = '';
 
-    postalCode.value = '';
+  postalCode.value = '';
 
-    country.value = '';
+  country.value = '';
 
-    minimun.value = '';
+  minimun.value = '';
 
-    maximum.value = '';
+  maximum.value = '';
 
 
 
