@@ -22,6 +22,56 @@ const minimun = getElement('#minimun');
 const maximum = getElement('#maximum');
 const btn = getElement('#sub');
 const output = getElement('#output');
+const copyBtn = getElement('.copyBtn');
+
+
+output.innerHTML = `
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org/",
+      "@type" : "JobPosting",
+      "title" : "",
+      "description" : "<p></p>",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "",
+        "value": "1234567"
+      },
+      "datePosted" : "",
+      "validThrough" : "",
+      "employmentType" : "",
+      "hiringOrganization" : {
+        "@type" : "Organization",
+        "name" : "",
+        "sameAs" : "",
+        "logo" : ""
+      },
+      "jobLocation": {
+      "@type" : "Place",
+        "address" : {
+        "@type" : "PostalAddress",
+        "streetAddress": "",
+        "addressLocality": "",
+        "addressRegion": "",
+        "postalCode": "23424",
+        "addressCountry": ""
+        }
+      },
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "BDT",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minvalue": 4234,
+          "maxvalue": 4242,
+          "unitText": "MONTH"
+        }
+      }
+    }
+  </script>
+
+
+`
 
 btn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -42,10 +92,10 @@ btn.addEventListener('click', (e) => {
   const minimunValue = minimun.value;
   const maximumValue = maximum.value;
 
-  output.innerText = `
-<script type="application/ld+json">
-{
-"@context" : "https://schema.org/",
+  output.innerHTML = `
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org/",
       "@type" : "JobPosting",
       "title" : "${jobTitleValue}",
       "description" : "<p>${descValue}</p>",
@@ -85,14 +135,14 @@ btn.addEventListener('click', (e) => {
         }
       }
     }
-    </script>
+  </script>
 `
 
 
   console.log(`
-<script type="application/ld+json">
-{
-"@context" : "https://schema.org/",
+    <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org/",
       "@type" : "JobPosting",
       "title" : "${jobTitleValue}",
       "description" : "<p>${descValue}</p>",
@@ -132,7 +182,7 @@ btn.addEventListener('click', (e) => {
         }
       }
     }
-    </script>
+  </script>
 `)
 
   jobTitle.value = '';
@@ -167,6 +217,15 @@ btn.addEventListener('click', (e) => {
 
   maximum.value = '';
 
-
-
 })
+
+
+copyBtn.addEventListener('click', () => {
+  output.select();
+  document.execCommand('Copy');
+})
+
+// copyBtn.onclick = function () {
+//   output.select();
+//   document.execCommand("Copy");
+// }
